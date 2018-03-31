@@ -14,12 +14,10 @@
 		  var data = new FormData();
 		  var file = fileSelect.files[0];
 		  data.append("file",file,file.name)
-
 		  //Send upload
 		  var req = new XMLHttpRequest();
 		  req.open("POST","/pic", true);
 		  req.send(data);
-
 		  //Receive new images
 		  req.onreadystatechange = function() {
 		    if (this.readyState == 4 && this.status == 200) {
