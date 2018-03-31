@@ -1,0 +1,29 @@
+
+<form id="file-form"  method="POST">
+  	<input type="file" id="file-select"/>
+  	<button type="submit" id="upload-button">Submit</button>
+</form>
+<script type="text/javascript">
+		var form = document.getElementById('file-form');
+		var fileSelect = document.getElementById('file-select');
+
+		form.onsubmit = function(event) {
+		  event.preventDefault();
+		  var data = new FormData();
+		  var file = fileSelect.files[0];
+		  data.append("file",file,file.name)
+
+		  //Send upload
+		  var req = new XMLHttpRequest();
+		  req.open("POST","/pic", true);
+		  req.send(data);
+
+		  //Receive new images
+		  req.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		    	var translation = this.responseText;
+		    	console.log(translation);
+		    	};
+		    }; 
+		 };
+</script>
