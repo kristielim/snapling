@@ -3,6 +3,7 @@
   	<input type="file" id="file-select"/>
   	<button type="submit" id="upload-button">Submit</button>
 </form>
+<h1 id="translationLabel">Hello</h1> 
 <script type="text/javascript">
 		var form = document.getElementById('file-form');
 		var fileSelect = document.getElementById('file-select');
@@ -22,7 +23,7 @@
 		  req.onreadystatechange = function() {
 		    if (this.readyState == 4 && this.status == 200) {
 		    	var translation = this.responseText;
-		    	console.log(translation);
+		    	document.getElementById('translationLabel').innerHTML = translation;
 		    	};
 		    }; 
 		 };
