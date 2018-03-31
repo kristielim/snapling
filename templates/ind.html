@@ -3,7 +3,8 @@
   	<input type="file" id="file-select"/>
   	<button type="submit" id="upload-button">Submit</button>
 </form>
-<h1 id="translationLabel">Hello</h1> 
+<h1 id="originalLabel">Original</h1> 
+<h1 id="otherLanguageLabel">Translation</h1> 
 <script type="text/javascript">
 		var form = document.getElementById('file-form');
 		var fileSelect = document.getElementById('file-select');
@@ -23,7 +24,11 @@
 		  req.onreadystatechange = function() {
 		    if (this.readyState == 4 && this.status == 200) {
 		    	var translation = this.responseText;
-		    	document.getElementById('translationLabel').innerHTML = translation;
+		    	//translation has original word and translation, separated by a comma
+		    	var originalWord = translation.split(',')[0];
+		    	var otherLanguageWord = translation.split(',')[1];
+		    	document.getElementById('originalLabel').innerHTML = 'Original: ' + originalWord;
+		    	document.getElementById('otherLanguageLabel').innerHTML = 'Translation: ' + otherLanguageWord;
 		    	};
 		    }; 
 		 };

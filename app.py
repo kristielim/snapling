@@ -14,6 +14,7 @@ def pic_to_word():
 	path_name = 'temp_pics/testpic.jpg'
 	file.save(path_name)
 	translation = get_translation(path_name, 'fr')
+	# translation has original word and translation, separated by a comma
 	print("translation",translation)
 	os.remove(path_name)
-	return translation[1]
+	return translation

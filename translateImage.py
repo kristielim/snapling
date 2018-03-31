@@ -18,8 +18,8 @@ def get_translation(image_path, target_language):
 
 	    response = client.label_detection(image=image)
 	    labels = response.label_annotations
-	    return (labels[0].description);
-	# returns a tuple of the given text in English and the translation in target language
+	    return (labels[0].description)
+	# returns a the given text in English and the translation in target language, separated by a comma
 	def translate_text(target, text):
 	    # Instantiates a client
 	    translate_client = translate.Client()
@@ -29,7 +29,7 @@ def get_translation(image_path, target_language):
 	        text,
 	        target_language=target)
 
-	    return (text, translation['translatedText'])
+	    return text + ',' + translation['translatedText']
 
 	#Actual calls to helpers    
 	text = detect_labels(image_path)
