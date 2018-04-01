@@ -12,8 +12,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
-    <!--input from rear camera button-->
-    <!--input type="file" name="image" accept="image/*" capture="environment"-->
 </head>
 <body>
 
@@ -29,8 +27,12 @@
     <p id="error-message"></p>
 
     <div class="controls">
+        <!--input from rear camera button-->
+        <!--input type="file" name="image" accept="image/*" capture="environment"-->
+
         <a href='#' id="vid" title="Switch Camera" style="align:center" title = "Switch Camera"><i class="material-icons">switch_camera</i></a>
         <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
+
         <button class="button" href="#" id="take-photo" title="Take Photo"></button>
         <a href="#" id="next" download="snap.png" title="Save Photo" class="disabled" style="padding-right:0px"><i class="material-icons">arrow_forwards</i></a>
     </div>

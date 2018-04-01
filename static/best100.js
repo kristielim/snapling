@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     });
 
-    video_selector_btn.addEventListener("click", e => {
+    /*video_selector_btn.addEventListener("click", e => {
 
         e.preventDefault();
         var devices = navigator.mediaDevices.enumerateDevices();
@@ -146,7 +146,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         }
-    });
+    });*/
+    var front = false;
+        document.getElementById('vid').onclick = function() {
+            front = !front;
+            var constraints = { video: { facingMode: (front? "user" : "environment") } };
+
+            navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+                video.srcObject = mediaStream;
+                video.onloadedmetadata = function(e) {
+                    video.play();
+                };});
+        };
+    // end new stuff
 
     function findCamera(item){
         return item == video;
