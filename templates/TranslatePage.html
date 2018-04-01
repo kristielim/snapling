@@ -59,6 +59,9 @@
             font-size: 50px;  
             color: #FFFFFF;    
         }
+        .button:hover {
+            cursor: pointer;
+        }
         .button:active {
             background-color: #155173;
             box-shadow: none;
@@ -81,8 +84,8 @@
                 French: {{translatedWord}}
             </h2>
         </div>
-        <div class="button">
-            <div style="margin-top:5">Try again!</div>
+        <div class="button" onclick="window.location = '/';">
+            <div style="margin-top:5">snap again</div>
         </div>
     </body>
 </html>
