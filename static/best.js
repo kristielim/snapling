@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         controls = document.querySelector('.controls'),
         take_photo_btn = document.querySelector('#take-photo'),
         delete_photo_btn = document.querySelector('#delete-photo'),
-        download_photo_btn = document.querySelector('#download-photo'),
+        next_btn = document.querySelector('#next'),
         error_message = document.querySelector('#error-message');
 
 
@@ -65,41 +65,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
-
     take_photo_btn.addEventListener("click", function(e){
 
         e.preventDefault();
 
-        var snap = takeSnapshot();
-
-        // Show image.
-        image.setAttribute('src', snap);
-        image.classList.add("visible");
-
-        var dataURL = snap;
-        //Send upload
-        var req = new XMLHttpRequest();
-        req.open("POST","/picURL", true);
-        req.send(dataURL);
-        //Receive new images
-        req.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var translation = this.responseText;
-            //translation has original word and translation, separated by a comma
-            var originalWord = translation.split(',')[0];
-            var otherLanguageWord = translation.split(',')[1];
-            console.log(originalWord);
-            console.log(otherLanguageWord);
-            window.location = '/connie/'+translation;
-            };
-        };
-
         // Enable delete and save buttons
         delete_photo_btn.classList.remove("disabled");
-        download_photo_btn.classList.remove("disabled");
+        next_btn.classList.remove("disabled");
 
-        // Set the href attribute of the download button to the snap url.
-        download_photo_btn.href = snap;
+        // Set the href attribute of the next button to the snap url.
+        //next_btn.href = snap;
 
         // Pause video playback of stream.
         video.pause();
@@ -117,11 +92,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Disable delete and save buttons
         delete_photo_btn.classList.add("disabled");
-        download_photo_btn.classList.add("disabled");
+        next_btn.classList.add("disabled");
 
         // Resume playback of stream.
         video.play();
 
+    });
+
+    next_btn.addEventListener("click", function(e) {
+        console.log('next button clicked');
+        var snap = takeSnapshot();
+
+        // Show image.
+        image.setAttribute('src', snap);
+        image.classList.add("visible");
+
+        var dataURL = snap;
+        console.log(dataURL);
+        //Send upload
+        var req = new XMLHttpRequest();
+        req.open("POST","/picURL", true);
+        req.send(dataURL);
+        //Receive new images
+        req.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var translation = this.responseText;
+            //translation has original word and translation, separated by a comma
+            var originalWord = translation.split(',')[0];
+            var otherLanguageWord = translation.split(',')[1];
+            console.log(originalWord);
+            console.log(otherLanguageWord);
+            window.location = '/connie/'+translation;
+            };
+        };
     });
 
 
