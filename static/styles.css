@@ -21,15 +21,16 @@ h3{
 
 
 .container{
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
+    /*min-width: 100%;
+    max-width: 1000px;*/
+    /*width: 100%;*/
+    height: 100vh;
     background-color: #efefef;
 }
 
-.app{
-    min-width: 100%;
-}
+/*.app{
+    height: 50%;
+}*/
 
 .app #start-camera{
     display: none;
@@ -46,7 +47,9 @@ h3{
 
 .app video#camera-stream{
     display: none;
-    width: 100%;
+    width: 100vw;
+    height: 87vh;
+    object-fit: fill;
 }
 
 .app img#snap{
@@ -69,7 +72,7 @@ h3{
 }
 
 .app .controls{
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
     left: 0;
     width: 100%;
@@ -79,11 +82,12 @@ h3{
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 30px;
-    display: none;
+    /*padding: 30px;*/
 }
 
 .app .controls a{
+    display: block;
+    margin: 0 auto;
     border-radius: 50%;
     color: #fff;
     background-color: #111;
@@ -129,17 +133,19 @@ h3{
 .app #error-message.visible
 {
     display: block;
+    object-fit: fill;
 }
 
 .app .controls.visible{
     display: flex;
+    align-items: center;
 }
 
 .button {
 
-        height: 100px;
+        height: 75px;
 
-        width: 100px;
+        width: 75px;
 
         margin: 10px auto;
 
@@ -173,7 +179,7 @@ h3{
 
 
 
-@media(max-width: 1000px){
+/*@media{
     .container{
         margin: 40px;
     }
@@ -189,10 +195,10 @@ h3{
     .app .controls #take-photo i{
         font-size: 24px;
     }
-}
+}*/
 
 
-@media(max-width: 600px){
+/*@media(max-width: 600px){
     .container{
         margin: 10px;
     }
@@ -209,5 +215,5 @@ h3{
     .app .controls #take-photo i{
         font-size: 18px;
     }
-}
+}*/
 
