@@ -100,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     next_btn.addEventListener("click", function(e) {
-        console.log('next button clicked');
         var snap = takeSnapshot();
 
         // Show image.
@@ -108,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
         image.classList.add("visible");
 
         var dataURL = snap;
-        console.log(dataURL);
         //Send upload
         var req = new XMLHttpRequest();
         req.open("POST","/picURL", true);
