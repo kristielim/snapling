@@ -27,6 +27,6 @@ def con(translation):
 	original, translated = translation.split("_")
 	return render_template("TranslatePage.html", originalWord=original, translatedWord=translated)
 
-@app.route("/page2/<translation>")
-def loading():
-	return render_template('page2.html', translation=translation)
+#@app.route("/page2/<translation>")
+#def loading():
+#	return render_template('page2.html', translation=translation)

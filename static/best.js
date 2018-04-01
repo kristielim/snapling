@@ -9,15 +9,18 @@ document.addEventListener('DOMContentLoaded', function () {
         delete_photo_btn = document.querySelector('#delete-photo'),
         next_btn = document.querySelector('#next'),
         error_message = document.querySelector('#error-message');
+    var video_selector_btn = document.getElementById('vid');
 
 
     // The getUserMedia interface is used for handling camera input.
     // Some browsers need a prefix so here we're covering all the options
-    navigator.getMedia = ( navigator.getUserMedia ||
-    navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia ||
-    navigator.msGetUserMedia);
-
+    window.onload = function() {
+        navigator.getMedia = ( navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia);
+    }
+    
 
     if(!navigator.getMedia){
         displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
@@ -125,6 +128,26 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     });
 
+    video_selector_btn.addEventListener("click", e => {
+
+        e.preventDefault();
+        var devices = navigator.mediaDevices.enumerateDevices();
+        var currIndex = devices.then(function(devices) {
+            return devices.findIndex(findCamera);
+  });
+        if(devices.length > 1){
+            for(var i = 0; i < devices.length; ++i){
+                var device = devices[i];
+                if(deviceInfo.kind == 'videoinput' && currIndex != i){
+                    video = devices[i];
+                }
+            }
+        }
+    });
+
+    function findCamera(item){
+        return item == video;
+    }
 
     function showVideo(){
         // Display the video stream and the controls.
