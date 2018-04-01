@@ -35,7 +35,7 @@
             flex-direction: column;
             align-items: center;
         }
-        .picture {
+        #picture {
             margin-top: 15%;
             border-radius: 50%;
             width: 40vw;
@@ -71,7 +71,7 @@
         </span>
     </div>
     <body>
-        <img class="picture"
+        <img id="picture"
         src=""/>
         <div>
             <h2 class="words" style="margin-top:25%">
@@ -86,3 +86,11 @@
         </div>
     </body>
 </html>
+<script>
+    window.onload = function(){
+        if (localStorage.getItem("scannedImage") === null) {
+            return "";
+}
+     document.getElementById("picture").src = localStorage.getItem('scannedImage');
+  }
+    </script>

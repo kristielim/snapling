@@ -154,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Turn the canvas image into a dataURL that can be used as a src for our photo.
             var photoURL = hidden_canvas.toDataURL('image/png');
+            localStorage.setItem("scannedImage",photoURL);
             return photoURL;
         }
     }
