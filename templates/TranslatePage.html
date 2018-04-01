@@ -11,7 +11,6 @@
             display: flex;
             width: 100%;
             height: 175px;
-            /*background-color: #2D9CDB; */
             align-items: center;
         }
         .title {
@@ -22,14 +21,6 @@
             color: #FFFFFF;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
        }
-        .motto {
-            align-items: right;
-            width: 150px;
-            font-family: 'Sriracha', cursive;
-            font-size: 20px;
-            font-weight: 350px;
-            text-align: center; 
-        }
         body {
             background: linear-gradient(#2D9CDB, white);
             background-size: 100% 50%;
@@ -38,7 +29,7 @@
             flex-direction: column;
             align-items: center;
         }
-        .picture {
+        #picture {
             margin-top: 15%;
             border-radius: 50%;
             width: 60vw;
@@ -64,6 +55,9 @@
             font-size: 75px;  
             color: #FFFFFF;    
         }
+        .button:hover {
+            cursor: pointer;
+        }
         .button:active {
             background-color: #155173;
             box-shadow: none;
@@ -76,19 +70,25 @@
         </span>
     </div>
     <body>
-        
-        <img class="picture"
-        src="https://tse4.mm.bing.net/th?id=OIP.0_nqsN20LG1oO-skdO90tgHaKv&pid=Api"/>
+        <img id="picture" src=""/>
         <div>
             <h2 class="words" style="margin-top:25%">
-                English
+                English: {{OriginalWord}}
             </h2>
             <h2 class="words" style="margin-top:3%;margin-bottom:25%">
-                French
+                French: {{translatedWord}}
             </h2>
         </div>
-        <div class="button">
+        <div class="button" onClick="window.location = '/';">
             <div style="margin-top:5">snap again</div>
         </div>
     </body>
 </html>
+<script>
+    window.onload = function(){
+        if(localStorage.getItem("scannedImage") === null) {
+            return "";
+        }
+        document.getElementById("picture").src = localStorage.getItem('scannedImage');
+    }
+</script>
