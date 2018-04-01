@@ -1,0 +1,88 @@
+<html>
+    <title>TranslatePage</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Sriracha" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .bar {
+            display: flex;
+            width: 100%;
+            height: 175px;
+            background-color: #2D9CDB; 
+            align-items: center;
+        }
+        .title {
+            margin-left: 5%;
+            font-family: 'Sriracha', cursive;
+            font-size: 100px;
+            text-align: left;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+       }
+        .motto {
+            align-items: right;
+            width: 150px;
+            font-family: 'Sriracha', cursive;
+            font-size: 20px;
+            font-weight: 350px;
+            text-align: center; 
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .picture {
+            margin-top: 15%;
+            border-radius: 50%;
+            width: 40vw;
+            height: 40vw;
+        }
+        .words {
+            font-family: 'Sriracha', cursive;
+            font-size: 75px;
+            font-weight: 375;
+            color: #000000;
+        }
+        .button {
+            height: 120;
+            width: 45%;
+            border-radius: 15px;
+            background-color: #2D9CDB;
+            transition: 0.2s;
+            text-align: center;
+            box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+            font-family: 'Sriracha', cursive;  
+            font-size: 50px;  
+            color: #FFFFFF;    
+        }
+        .button:active {
+            background-color: #155173;
+            box-shadow: none;
+            transform: translateY(2px);
+        }
+    </style>
+    <div class="bar">
+        <span class="title">
+        snapling
+        </span>
+    </div>
+    <body>
+        <img class="picture"
+        src=""/>
+        <div>
+            <h2 class="words" style="margin-top:25%">
+                English: {{originalWord}}
+            </h2>
+            <h2 class="words" style="margin-top:3%;margin-bottom:25%">
+                French: {{translatedWord}}
+            </h2>
+        </div>
+        <div class="button">
+            <div style="margin-top:5">Try again!</div>
+        </div>
+    </body>
+</html>
